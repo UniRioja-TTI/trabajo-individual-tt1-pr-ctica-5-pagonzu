@@ -69,4 +69,28 @@ public class SolicitudController {
         }
         return "formResult";
     }
+    @GetMapping("/grid")
+    public String mostrarGrid(@RequestParam("tok") int token, Model model) {
+        logger.info("Accediendo a la cuadrícula con el token: " + token);
+
+        modelo.DatosSimulation ds = ics.descargarDatos(token);
+
+        Map<String, String> mapaColores = new HashMap<>();
+
+        if (ds.getPuntos() != null) {
+            for (Map.Entry<Integer, List<modelo.Punto>> entrada : ds.getPuntos().entrySet()) {
+                int tiempo = entrada.getKey();
+                for (modelo.Punto p : entrada.getValue()) {
+                    String clave = tiempo + "-" + p.getY() + "-" + p.getX();
+                    mapaColores.put(clave, p.getColor());
+                }
+            }
+        }
+
+        model.addAttribute("maxTime", ds.getMaxSegundos());
+        model.addAttribute("count", ds.getAnchoTablero());
+        model.addAttribute("colors", mapaColores);
+
+        return "grid";
+    }
 }

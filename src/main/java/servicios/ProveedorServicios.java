@@ -1,11 +1,11 @@
 package servicios;
 
 import org.springframework.stereotype.Service;
-import utilidades.ApiClient;
-import utilidades.Configuration;
-import utilidades.api.EmailApi;
-import utilidades.api.SolicitudApi;
-import utilidades.model.EmailResponse;
+import io.swagger.client.ApiClient;
+import io.swagger.client.Configuration;
+import io.swagger.client.api.EmailApi;
+import io.swagger.client.api.SolicitudApi;
+import io.swagger.client.model.EmailResponse;
 
 @Service
 public class ProveedorServicios {
