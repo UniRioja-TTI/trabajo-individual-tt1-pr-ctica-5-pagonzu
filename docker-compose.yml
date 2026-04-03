@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mi-app:
+    image: mi-trabajo-individual
+    ports:
+      - "8080:8080"
+    networks:
+      - red-practica
+
+  servicio-vm:
+    image: javillour/servicio-tt1:amd64
+    networks:
+      - red-practica
+
+networks:
+  red-practica:

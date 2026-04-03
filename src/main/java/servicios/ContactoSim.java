@@ -36,7 +36,7 @@ public class ContactoSim implements InterfazContactoSim {
 
         try {
             io.swagger.client.api.ResultadosApi api = new io.swagger.client.api.ResultadosApi();
-            api.getApiClient().setBasePath("http://localhost:8080");
+            api.getApiClient().setBasePath("http://servicio-vm:8080");
 
             io.swagger.client.model.ResultsResponse respuesta = api.resultadosPost("UsuarioPrueba",ticket);
 
